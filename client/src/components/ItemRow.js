@@ -24,11 +24,11 @@ const ItemRow = ({ item, lowStock, setLowStock }) => {
 
   return (
     <tr>
-      <td>{item.id}</td>
-      <td>{item.name}</td>
-      <td>{item.stock}</td>
-      <td>{item.capacity}</td>
-      <td>
+      <td id="item-id">{item.id}</td>
+      <td id="item-name">{item.name}</td>
+      <td id="item-stock">{item.stock}</td>
+      <td id="item-capacity">{item.capacity}</td>
+      <td id="order-ammount">
         <input type="number" value={item.cost} onChange={handleChange}></input>
       </td>
     </tr>
