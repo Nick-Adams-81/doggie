@@ -2,7 +2,7 @@ export default function Instructions() {
     return (
       <div className="sidebar">
         <h1>TopBloc Coding Challenge</h1>
-        <p>
+        <div>
           An engineer has created a web application for Randy's Candies, a local
           candy store in Chicago. Randy, the owner, asked that the application to
           does three things:
@@ -25,8 +25,8 @@ export default function Instructions() {
               see fit. You may also add types of tests other than unit tests if you'd like.
             </b>
           </p>
-          <h3>Backend</h3>
-          <h4>Workbooks</h4>
+          <h3 data-testid="backend-header">Backend</h3>
+          <h4 data-testid="workbooks-header">Workbooks</h4>
           The backend contains two workbooks, <code>Inventory.xlsx</code> and{" "}
           <code>Distributors.xlsx</code>.<code>Inventory.xlsx</code> contains the
           items in the store: their SKU, name, amount in stock, and the capacity
@@ -46,8 +46,8 @@ export default function Instructions() {
           total cost is determined by the lowest available price across different
           distributors. The items to restock and their amounts should be provided
           in the request body from the frontend.
-        </p>
-        <h3>Frontend</h3>
+        </div>
+        <h3 data-testid="frontend-header">Frontend</h3>
         <p>
           The frontend will be responsible for utilizing the Java endpoints to
           display the low-stock items and calculating the cost of restocking
