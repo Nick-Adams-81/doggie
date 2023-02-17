@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import ItemRow from "./ItemRow";
 
 export default function Challenge() {
@@ -10,19 +9,22 @@ export default function Challenge() {
   const [restockCost, setRestockCost] = useState([]);
 
   const handleClickLowStock = async () => {
-    const data = await axios.get("http://localhost:4567/low-stock");
+    const data = await fetch("http://localhost:4567/low-stock");
+    const lowStock = await data.json();
     setLowStock({
-      data: data.data,
+      data: lowStock,
       loading: false,
     });
   };
 
   const handleClickReorderCost = async () => {
-    const data = await axios.post(
-      "http://localhost:4567/restock-cost",
-      lowStock.data
-    );
-    setRestockCost(data.data);
+    const data = await fetch("http://localhost:4567/restock-cost", {
+      method: "post",
+      headers: { 'Content-type': 'application/json'},
+      body: JSON.stringify(lowStock.data),
+    });
+    const lowStockData = await data.json()
+    setRestockCost(lowStockData);
   };
 
   return (
@@ -30,7 +32,7 @@ export default function Challenge() {
       <table>
         <thead>
           <tr>
-            <td>SKU</td>
+            <td data-testid="sku-text">SKU</td>
             <td>Item Name</td>
             <td>Amount in Stock</td>
             <td>Capacity</td>
@@ -53,8 +55,12 @@ export default function Challenge() {
       <div id="totalCost">
         Total Cost: ${Math.round((restockCost + Number.EPSILON) * 100) / 100}
       </div>
-      <button id="low-stock-button" onClick={handleClickLowStock}>Get Low-Stock Items</button>
-      <button id="re-order-button" onClick={handleClickReorderCost}>Determine Re-Order Cost</button>
+      <button id="low-stock-button" onClick={handleClickLowStock}>
+        Get Low-Stock Items
+      </button>
+      <button id="re-order-button" onClick={handleClickReorderCost}>
+        Determine Re-Order Cost
+      </button>
     </>
   );
 }
