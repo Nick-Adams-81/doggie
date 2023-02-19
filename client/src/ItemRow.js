@@ -25,11 +25,11 @@ const ItemRow = ({ item, lowStock, setLowStock }) => {
   return (
     <tr>
       <td id="item-id">{item.id}</td>
-      <td id="item-name">{item.name}</td>
-      <td id="item-stock">{item.stock}</td>
-      <td id="item-capacity">{item.capacity}</td>
+      <td id="item-name" data-testid="item-name">{item.name}</td>
+      <td id="item-stock" data-testid="item-stock">{item.stock}</td>
+      <td id="item-capacity" data-testid="item-capacity">{item.capacity}</td>
       <td id="order-ammount">
-        <input type="number" value={item.cost} onChange={handleChange}></input>
+        <input type="number" data-testid="item-ammount" value={item.cost} onChange={handleChange}></input>
       </td>
     </tr>
   );

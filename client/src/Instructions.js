@@ -1,5 +1,4 @@
 export default function Instructions() {
-  const add = (a, b) => a + b
     return (
       <div className="sidebar">
         <h1>TopBloc Coding Challenge</h1>
