@@ -1,8 +1,14 @@
+import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import Instructions from "./Instructions";
+import renderer from "react-test-renderer";
 
 describe("instructions page tests", () => {
-  test("should render topbloc coding challenge", () => {
+  it("renders correctly and takes a snapshot of the component", () => {
+    const tree = renderer.create(<Instructions />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
+  it("should render topbloc coding challenge", () => {
     render(<Instructions />);
     const headerElement = screen.getByText(/topbloc coding challenge/i);
     expect(headerElement).toBeInTheDocument();

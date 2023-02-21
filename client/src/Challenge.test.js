@@ -1,6 +1,6 @@
 import { render, screen, cleanup, fireEvent } from "@testing-library/react";
-import Challenge, { handleClickLowStock } from "./Challenge";
-
+import renderer from "react-test-renderer"
+import Challenge from "./Challenge";
 
 describe("challenge page test suite", () => {
   beforeEach(() => {
@@ -10,6 +10,10 @@ describe("challenge page test suite", () => {
     jest.clearAllMocks();
   });
 
+  it("renders correctly and takes a snapshot of the component", () => {
+    const tree = renderer.create(<Challenge />).toJSON();
+    expect(tree).toMatchSnapshot();
+  });
   test("should render sku on page", () => {
     render(<Challenge />);
     const skuText = screen.getByTestId("sku-text");
@@ -32,11 +36,7 @@ describe("challenge page test suite", () => {
         .then((res) => res.json())
         .catch((err) => console.log(err));
     });
-    console.log(data.mockImplementation());
+    expect(data).not.toBeNull();
     expect(fetch).toHaveBeenCalledTimes(0);
-  });
-  it("should get a name", async () => {
-    const result = await handleClickLowStock;
-    console.log(result);
   });
 });

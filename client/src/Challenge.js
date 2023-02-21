@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import ItemRow from "./ItemRow";
 import totalCostCalculator from "./functions/totalCostCalculator";
 
+
 export default function Challenge() {
   const [lowStock, setLowStock] = useState({
     data: "",
@@ -24,6 +25,7 @@ export default function Challenge() {
   };
 
 
+  
   const handleClickReorderCost = async () => {
     try {
       const data = await fetch("http://localhost:4567/restock-cost", {

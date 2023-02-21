@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`challenge page test suite renders correctly and takes a snapshot of the component 1`] = `
+Array [
+  <table>
+    <thead>
+      <tr>
+        <td
+          data-testid="sku-text"
+        >
+          SKU
+        </td>
+        <td>
+          Item Name
+        </td>
+        <td>
+          Amount in Stock
+        </td>
+        <td>
+          Capacity
+        </td>
+        <td>
+          Order Amount
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      loading...
+    </tbody>
+  </table>,
+  <div
+    data-testid="total-cost"
+    id="totalCost"
+  >
+    Total Cost: $
+    0
+  </div>,
+  <button
+    data-testid="low-stock-button"
+    id="low-stock-button"
+    onClick={[Function]}
+  >
+    Get Low-Stock Items
+  </button>,
+  <button
+    data-testid="re-order-button"
+    id="re-order-button"
+    onClick={[Function]}
+  >
+    Determine Re-Order Cost
+  </button>,
+]
+`;
