@@ -57,6 +57,19 @@ public class Seleniume2eTest {
         driver.findElement(By.id("remove-sauce-labs-bike-light")).click();
 
         Thread.sleep(2000);
-        driver.quit();
+        driver.findElement(By.className("product_sort_container")).click();
+        Thread.sleep(1000);
+        driver.findElement(By.tagName("option")).click();
+        Thread.sleep(2000);
+
+        driver.findElement(By.id("react-burger-menu-btn")).click();
+        Thread.sleep(2000);
+
+        driver.findElement(By.id("logout_sidebar_link")).click();
+        String usernamesText = driver.findElement(By.tagName("h4")).getText();
+        Assert.assertEquals("Accepted usernames are:", usernamesText);
+        Assert.assertNotEquals("accepted usernames are:", usernamesText);
+        Thread.sleep(2000);
+        driver.close();
     }
 }
