@@ -1,9 +1,12 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, cleanup } from "@testing-library/react";
 import Instructions from "./Instructions";
 import renderer from "react-test-renderer";
 
 describe("instructions page tests", () => {
+    beforeEach(() => {
+        cleanup();
+      });
   it("renders correctly and takes a snapshot of the component", () => {
     const tree = renderer.create(<Instructions />).toJSON();
     expect(tree).toMatchSnapshot();

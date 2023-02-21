@@ -1,12 +1,14 @@
-import { render, screen, cleanup, fireEvent } from "@testing-library/react";
-import renderer from "react-test-renderer"
+import {
+  render,
+  screen,
+  cleanup,
+} from "@testing-library/react";
+import renderer from "react-test-renderer";
 import Challenge from "./Challenge";
 
 describe("challenge page test suite", () => {
-  beforeEach(() => {
-    cleanup();
-  });
   afterEach(() => {
+    cleanup();
     jest.clearAllMocks();
   });
 
@@ -38,5 +40,10 @@ describe("challenge page test suite", () => {
     });
     expect(data).not.toBeNull();
     expect(fetch).toHaveBeenCalledTimes(0);
+  });
+  it("should click the button and add test to list", () => {
+    render(<Challenge />);
+    const btn = screen.getByTestId("low-stock-button");
+    expect(btn).toBeInTheDocument();
   });
 });
