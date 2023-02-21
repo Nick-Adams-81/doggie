@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ItemRow from "./ItemRow";
+import totalCostCalculator from "./functions/totalCostCalculator";
 
 export default function Challenge() {
   const [lowStock, setLowStock] = useState({
@@ -21,6 +22,7 @@ export default function Challenge() {
       return null;
     }
   };
+
 
   const handleClickReorderCost = async () => {
     try {
@@ -62,7 +64,7 @@ export default function Challenge() {
         </tbody>
       </table>
       <div id="totalCost" data-testid="total-cost">
-        Total Cost: ${Math.round((restockCost + Number.EPSILON) * 100) / 100}
+        Total Cost: ${totalCostCalculator(restockCost)}
       </div>
       <button
         id="low-stock-button"

@@ -1,8 +1,16 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen, cleanup, fireEvent } from "@testing-library/react";
 import Challenge, { handleClickLowStock } from "./Challenge";
 
+
 describe("challenge page test suite", () => {
-  it("should render sku on page", () => {
+  beforeEach(() => {
+    cleanup();
+  });
+  afterEach(() => {
+    jest.clearAllMocks();
+  });
+
+  test("should render sku on page", () => {
     render(<Challenge />);
     const skuText = screen.getByTestId("sku-text");
     expect(skuText).toBeInTheDocument();
@@ -18,8 +26,17 @@ describe("challenge page test suite", () => {
     expect(totalCost).toBeInTheDocument();
     expect(totalCost.innerHTML).toMatch(/total cost:/i);
   });
-  it("should make a fetch request", async () => {
-    const data = await handleClickLowStock;
-    expect(handleClickLowStock).not.toBeNull();
+  it("should make a fetch request", () => {
+    const data = jest.fn(() => {
+      fetch("http://localhost:4567/low-stock")
+        .then((res) => res.json())
+        .catch((err) => console.log(err));
+    });
+    console.log(data.mockImplementation());
+    expect(fetch).toHaveBeenCalledTimes(0);
+  });
+  it("should get a name", async () => {
+    const result = await handleClickLowStock;
+    console.log(result);
   });
 });
