@@ -18,7 +18,6 @@ export default function Challenge() {
         data: lowStock,
         loading: false,
       });
-      return lowStock;
     } catch (e) {
       return null;
     }
