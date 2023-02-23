@@ -18,6 +18,7 @@ npm run start
 
 To run tests in the frontend `/client` folder: 
 ```bash
+cd client
 npm run test
 ```
 
