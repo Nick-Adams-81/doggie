@@ -31,7 +31,7 @@ cd test
 once in the test folder you should see the seleniume2eTest file, run the main method in that file to run the test.
 
 ## Conclusion
-I would like to thank you guys for givivng me an opportunity to take this challenge, it means a lot to me and I really appreciate it. I hope you like what i've done and to have the chance to learn and grow with the company, thanks you!!!
+I would like to thank you guys for givivng me an opportunity to take this challenge, it means a lot to me and I really appreciate it. I hope you like what i've done and to have the chance to learn and grow with all of you, thank you!!!
 
 
 
